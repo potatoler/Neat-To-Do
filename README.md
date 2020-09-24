@@ -2,7 +2,7 @@
 
 > 简洁而不简单的待办事项 App
 
-<img src="https://i.loli.net/2020/09/24/SyQiMjgNH7LYRx5.jpg" alt="icon" style="zoom: 25%;" />
+![icon](https://i.loli.net/2020/09/24/FxJvwgKEiIOu5qU.png)
 
 #### Neat To Do 是什么
 

@@ -14,7 +14,7 @@ struct EditingPage: View {
     @State var title: String = ""
     @State var date: Date = Date()
     @State var isFocused: Bool = false
-    @State var colour: String = "pink"
+    @State var colour: String = "orange"
     
     var id: Int? = nil
     

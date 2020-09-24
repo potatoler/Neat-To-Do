@@ -13,7 +13,7 @@ func InitUserData() -> [ImportantThing] {
         let data = try! decoder.decode([ImportantThing].self, from: dataStored)
         for item in data{
             if !item.deleted {
-                output.append(ImportantThing(title: item.title, date: item.date, isChecked: item.isChecked, id: output.count))
+                output.append(ImportantThing(title: item.title, date: item.date, isChecked: item.isChecked, isFocused: item.isFocused, colour: item.colour, id: output.count))
             }
         }
     }
@@ -196,12 +196,13 @@ struct SingleCardView: View {
                             Text(self.userData.ToDoList[index].title)
                                 .font(.title3)
                                 .fontWeight(.bold)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("headlineText"))
                             Text(self.userData.getCNDate(id: index))
                                 .font(.headline)
                                 .foregroundColor(.gray)
                         }
                         .padding(.leading)
+                        .background(Color("cardBackground"))
                         
                         Spacer()
                     }
@@ -210,6 +211,7 @@ struct SingleCardView: View {
                     EditingPage(title: self.userData.ToDoList[self.index].title,
                                 date: self.userData.ToDoList[self.index].date,
                                 isFocused: self.userData.ToDoList[self.index].isFocused,
+                                colour: self.userData.ToDoList[self.index].colour,
                                 id: self.index)
                         .environmentObject(self.userData)
                 })
@@ -248,7 +250,7 @@ struct SingleCardView: View {
                 }
             }
             .frame(height: 80)
-            .background(Color.white)
+            .background(Color("cardBackground"))
             .cornerRadius(10)
             .shadow(radius: 5, x:0, y:5)
         }
@@ -257,11 +259,11 @@ struct SingleCardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(userData: ToDo(data: [ImportantThing(title: "交钱给英语课代表", date: Date(), colour: "orange"),
-                                          ImportantThing(title: "回去上生物课", date: Date(), colour: "blue"),
-                                          ImportantThing(title: "写昨天T4", date:Date(), colour: "yellow"),
-                                          ImportantThing(title: "考试", date: Date(), colour: "green"),
-                                          ImportantThing(title: "完成 Project NTD", date: Date(), colour: "brown")
+        ContentView(userData: ToDo(data: [ImportantThing(title: "Buy Cup Ramen", date: Date(), isChecked: true, colour: "orange"),
+                                          ImportantThing(title: "Back to Class for a Biology Class", date: Date(), isChecked: true, colour: "blue"),
+                                          ImportantThing(title: "Solve Math Problems", date:Date(), colour: "yellow"),
+                                          ImportantThing(title: "Do a Demo", date: Date(), isFocused: true, colour: "green"),
+                                          ImportantThing(title: "Add New Features!", date: Date(), isFocused: true, colour: "brown")
                                
         ]))
     }

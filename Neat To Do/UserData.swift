@@ -80,7 +80,7 @@ struct ImportantThing: Identifiable, Codable {
     var date: Date = Date()
     var isChecked: Bool = false
     var isFocused: Bool = false
-    var colour: String = "pink"
+    var colour: String = "orange"
     var id: Int = 0
     var deleted = false
 }
